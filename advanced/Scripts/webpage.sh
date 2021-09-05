@@ -574,7 +574,7 @@ SetCronTab()
         speedtest_file="/var/www/html/admin/scripts/pi-hole/speedtest/speedtest.sh"
       fi
 
-      newtab="0 */"${1}" * * * sudo \""${speedtest_file}"\"  > /dev/null 2>&1"
+      newtab="0 */"${1}" * * * sudo \""${speedtest_file}"\"  > /tmp/speedtest_logs/error.log 2>&1"
       printf '%s\n' "$newtab" >>crontab.tmp
       crontab crontab.tmp && rm -f crontab.tmp
   fi
